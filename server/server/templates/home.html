@@ -1,0 +1,19 @@
+{% include "navbar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Aidan's Resume Creator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <h1>Welcome to the Home Page...</h1>
+            <h2>...of my simple dream-logging application.</h2>
+            <h3>Proudly Made by Aidan Wigmore.</h3>
+        </form>
+    </body>
+</html>

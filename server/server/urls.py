@@ -16,7 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth import views as auth_views
+
+from . import views
+from dreams import views as dream_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.home, name='home'),path('register/', views.register, name='register'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
+    path('dream/', dream_views.dream_index, name='dream_index'), # List/select dreams
+    path('dream/create/', dream_views.dream_create, name='dream_create'), # Create dreams
+    path('dream/<int:pk>/', dream_views.dream_detail, name='dream_detail'), # View dream details
+    path('dream/<int:pk>/delete/', dream_views.dream_delete, name='dream_delete'), # Delete dreams
 ]

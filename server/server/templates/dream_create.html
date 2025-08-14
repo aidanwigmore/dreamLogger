@@ -1,0 +1,28 @@
+{% include "navbar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Aidan's Dream Creator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            .page { display: none; }
+            .page.active { display: block; }
+        </style>
+    </head>
+    <body>
+        <form id="myForm" style="width: 99%; display: flex; flex-direction: column; align-items: center; " method="post">
+            {% csrf_token %}
+            <div class="page active">
+                <h2>Add Dream Details:</h2>
+                <div style="margin-top: 5%;">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" placeholder="Ex: Cool Dream" style="flex-basis: 100%;" required>
+                </div>
+            <div>
+            <button style="margin: 10%;background-color: lightyellow;" type="submit">Create Dream</button>
+        </form>
+    </body>
+</html>
+
